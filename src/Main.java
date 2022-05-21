@@ -72,7 +72,7 @@ public class Main {
 					if(link==null)
 						System.out.println("error");
 					else {
-						currentDoc.link.put(link.ref,link);
+						currentDoc.link.add(link);
 						System.out.println("true");
 					}
 				}
@@ -83,7 +83,7 @@ public class Main {
 			// get str
 			if(word[0].equalsIgnoreCase("get") && word.length==2) {
 				if(currentDoc!=null) {
-					Link l=currentDoc.link.get(word[1]);
+					Link l=(Link)currentDoc.link.get(currentDoc.link.indexOf(new Link(word[1])));
 					if(l!=null) {
 						System.out.println(l);
 					}
@@ -98,7 +98,7 @@ public class Main {
 			// rem str
 			if(word[0].equalsIgnoreCase("rem") && word.length==2) {
 				if(currentDoc!=null) {
-					Link l=currentDoc.link.remove(word[1]);
+					Link l=(Link) currentDoc.link.remove(word[1]);
 					if(l!=null) {
 						// write the removed link
 						System.out.println(l);
